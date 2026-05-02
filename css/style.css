@@ -1,0 +1,732 @@
+/* =========================================
+   1. CSS VARIABLES (PALET WARNA & FONT)
+========================================= */
+:root {
+    --primary-green: #065f46; /* Hijau gelap elegan (nuansa akademik/Islami) */
+    --secondary-green: #10b981; /* Hijau cerah untuk aksen/hover */
+    --accent-gold: #f59e0b; /* Warna emas/kuning untuk tombol (kontras) */
+    --bg-light: #f8fafc; /* Abu-abu sangat muda untuk background utama */
+    --text-dark: #1e293b;
+    --text-light: #64748b;
+    --white: #ffffff;
+    --font-main: 'Inter', sans-serif; /* Font compact dan rapi */
+}
+
+/* =========================================
+   2. RESET & GLOBAL STYLES
+========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth; /* Animasi scroll halus saat klik navbar */
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: var(--bg-light);
+    color: var(--text-dark);
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   3. TOP NAVBAR (Pro & Responsive)
+========================================= */
+.top-navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.95); /* Hampir putih solid agar tegas */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.08); /* Bayangan lembut ke bawah */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%; /* Lebar responsif */
+    z-index: 1000;
+    transition: all 0.3s ease;
+}
+
+.nav-brand {
+    font-weight: 700;
+    color: var(--primary-green);
+    font-size: 1.25rem;
+    letter-spacing: -0.5px;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-dark);
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--secondary-green);
+}
+
+/* Menu Toggle (Hamburger) - Disembunyikan di Desktop */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    z-index: 9999;
+    position: relative;
+    gap: 5px;
+}
+
+.menu-toggle .bar {
+    width: 25px;
+    height: 3px;
+    background-color: var(--primary-green);
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* =========================================
+   RESPONSIVE NAVBAR (Mobile & Tablet)
+========================================= */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: flex; /* Munculkan tombol hamburger di HP */
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 100%; /* Turun tepat di bawah navbar */
+        left: -100%; /* Sembunyikan jauh ke kiri secara default */
+        flex-direction: column;
+        background: var(--white);
+        width: 100%;
+        text-align: center;
+        transition: 0.3s ease-in-out;
+        box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        padding: 20px 0;
+        gap: 20px;
+    }
+
+    /* Class ini akan ditambahkan oleh JavaScript saat tombol diklik */
+    .nav-links.active {
+        left: 0; /* Menu bergeser masuk ke layar */
+    }
+}
+
+
+/* =========================================
+   4. HERO SECTION (Tinggi Fixed & Padding)
+========================================= */
+
+.hero-section {
+    position: relative;
+    height: 550px;
+    width: 100%;
+    /* Tambahkan warna fallback JIKA gambar JS gagal dimuat */
+    background-color: var(--primary-green); 
+    display: flex;
+    align-items: center;
+    padding: 0 8%;
+    margin-bottom: 0; /* Ubah dari 60px jadi 0 agar section bawahnya mepet */
+    overflow: hidden;
+    margin-top: 70px; /* Tambahkan ini agar tidak tertutup navbar yang fix di atas */
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 600px;
+    color: var(--white);
+}
+
+.hero-content h1 {
+    font-size: 2.8rem;
+    line-height: 1.2;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3); /* Agar teks tetap terbaca jika background terang */
+}
+
+.hero-content p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--white);
+    border: 2px solid var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 30px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: var(--white);
+    color: var(--primary-green);
+}
+
+/* =========================================
+   5. DEEP LEARNING GRID SECTION
+========================================= */
+.learning-section {
+    padding: 50px 5%;
+    text-align: center;
+}
+
+.learning-section h2 {
+    color: var(--primary-green);
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* =========================================
+   5. DEEP LEARNING GRID SECTION (PRO)
+========================================= */
+/* Grid 4 Kolom untuk Deep Learning */
+.deep-learning-grid {
+    display: grid;
+    /* Grid responsif otomatis, akan menjadi 4 kolom di desktop dan 1 kolom di HP */
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 25px;
+    margin-bottom: 50px;
+}
+
+/* Card Animasi Pro */
+.card {
+    background: var(--white);
+    padding: 30px 20px;
+    border-radius: 16px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid var(--accent-gold) !important;
+    transition: all 0.3s ease;
+    text-align: center; /* Teks di tengah agar rapi */
+    position: relative;
+}
+
+.card.dl-step:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    border-color: var(--accent-gold);
+}
+
+.step-icon {
+    width: 60px;
+    height: 60px;
+    background-color: #fffbeb; /* Latar icon kuning muda */
+    color: var(--accent-gold);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin: 0 auto 20px auto;
+    transition: all 0.3s ease;
+}
+
+.card.dl-step:hover .step-icon {
+    transform: rotate(10deg) scale(1.1);
+    background-color: var(--accent-gold);
+    color: var(--white);
+}
+
+.card h3 {
+    color: var(--primary-green);
+    margin-bottom: 12px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+/* =========================================
+   6. GENIALLY EMBED CONTAINER (MAC-STYLE)
+========================================= */
+.genially-wrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+    border-radius: 16px;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.15);
+    overflow: hidden; /* Mencegah sudut iframe keluar border */
+    background-color: var(--white);
+    border: 1px solid #e2e8f0;
+}
+
+/* Tampilan Header Jendela ala Browser Mac */
+.window-header {
+    background-color: #f8fafc;
+    padding: 12px 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.window-dots {
+    display: flex;
+    gap: 8px;
+}
+
+.window-dots span {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* Warna khas tombol mac: merah, kuning, hijau */
+.window-dots span:nth-child(1) { background-color: #ef4444; }
+.window-dots span:nth-child(2) { background-color: #f59e0b; }
+.window-dots span:nth-child(3) { background-color: #10b981; }
+
+.window-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+    margin-left: -40px; /* Kompensasi ruang tombol dots agar teks persis di tengah */
+}
+
+.genially-container {
+    width: 100%;
+    padding: 0; /* Hapus padding agar iframe memenuhi layar window */
+}
+
+/* Teknik Rahasia Aspect Ratio 16:9 agar frame Genially otomatis responsif */
+.responsive-iframe {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Rasio 16:9 (9 / 16 = 0.5625) */
+    height: 0;
+    background-color: #e2e8f0;
+}
+
+/* Mengatur Iframe Genially agar mengisi kontainer */
+.responsive-iframe iframe,
+.placeholder-genially {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+.placeholder-genially {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: repeating-linear-gradient(
+        45deg,
+        #f8fafc,
+        #f8fafc 10px,
+        #f1f5f9 10px,
+        #f1f5f9 20px
+    );
+}
+/* =========================================
+   7. RESPONSIVE DESIGN (Mobile & Tablet)
+========================================= */
+@media (max-width: 768px) {
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-section {
+        height: 450px; /* Sedikit lebih pendek di HP */
+        padding: 0 5%;
+    }
+}
+
+
+/* =========================================
+   8. TAMBAHAN ELEMEN BARU (Pro Version)
+========================================= */
+.badge {
+    display: inline-block;
+    background-color: rgba(255, 255, 255, 0.2);
+    padding: 6px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.btn-outline {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--accent-gold);
+    color: var(--white);
+    text-decoration: none;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(245, 158, 11, 0.4);
+    border-radius: 30px;
+    transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+     transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(245, 158, 11, 0.6);
+}
+
+
+
+
+
+
+.bg-light {
+    background-color: #f1f5f9; /* Selang-seling warna background tiap section */
+}
+
+.section-subtitle {
+    color: var(--text-light);
+    margin-top: 0;
+    margin-bottom: 30px; /* Rapatkan */
+}
+
+.card-icon {
+    font-size: 2rem;
+    color: var(--accent-gold);
+    margin-bottom: 15px;
+}
+
+.video-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.border-top-accent {
+    border-top: 4px solid var(--accent-gold) !important;
+}
+
+/* Penyesuaian hero content di layar kecil */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 1.6rem !important;
+    }
+    .hero-buttons {
+        flex-direction: column;
+    }
+}
+
+
+/* =========================================
+   9. WALI SONGO GRID & CARDS (LEFT-ALIGNED PRO)
+========================================= */
+.wali-grid {
+    display: grid;
+    /* Grid responsif, menyesuaikan ukuran otomatis */
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
+
+.wali-card {
+    background: var(--white);
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid #e2e8f0;
+    position: relative;
+    
+    /* Flexbox untuk layout rata kiri (kiri atas ke bawah) */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Menggeser semua konten rapat ke kiri */
+    text-align: left; /* Teks dibaca dari kiri ke kanan */
+}
+
+.wali-img {
+    width: 65px; /* Gambar diperkecil ukurannya */
+    height: 65px;
+    margin: 0 0 15px 0; /* Margin bawah saja, tidak di tengah */
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid var(--secondary-green);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.15);
+    background-color: var(--bg-light);
+    flex-shrink: 0; /* Mencegah gambar menyusut */
+}
+
+.wali-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.wali-card h3 {
+    font-size: 1.15rem;
+    color: var(--primary-green);
+    margin-bottom: 5px;
+}
+
+.wali-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin: 0;
+}
+
+/* Efek Hover Profesional */
+.wali-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(6, 95, 70, 0.1);
+    border-color: var(--secondary-green);
+}
+
+.wali-card:hover .wali-img img {
+    transform: scale(1.15);
+}
+
+.wali-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 10px 20px rgba(6, 95, 70, 0.15);
+    border-color: var(--secondary-green);
+}
+
+.wali-icon {
+    font-size: 2.5rem;
+    color: var(--primary-green);
+    margin-bottom: 10px;
+}
+
+@media (max-width: 768px) {
+    .wali-grid {
+        /* Memaksa grid menjadi 2 kolom dengan proporsi yang sama persis (1fr 1fr) */
+        grid-template-columns: repeat(2, 1fr);
+        gap: 12px; /* Jarak antar kartu sedikit dikurangi agar muat di layar kecil */
+    }
+
+    .wali-card {
+        padding: 15px; /* Padding dikurangi agar teks punya ruang bernapas */
+    }
+
+    .wali-img {
+        width: 45px; /* Gambar diperkecil proporsional untuk HP */
+        height: 45px;
+        margin: 0 0 10px 0;
+    }
+
+    .wali-card h3 {
+        font-size: 0.95rem; /* Font judul disesuaikan */
+        margin-bottom: 3px;
+    }
+
+    .wali-card p {
+        font-size: 0.75rem; /* Font deskripsi disesuaikan */
+    }
+}
+
+/* =========================================
+   10. POP-UP MODAL (Glassmorphism Effect)
+========================================= */
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(8px); /* Efek redup ngeblur yang sangat modern */
+    display: none; /* Disembunyikan secara default */
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+}
+
+.modal-content {
+    background: var(--white);
+    width: 100%;
+    max-width: 600px;
+    padding: 35px;
+    border-radius: 20px;
+    position: relative;
+    animation: modalSlideUp 0.4s ease-out forwards;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    font-size: 2rem;
+    color: var(--text-light);
+    cursor: pointer;
+    transition: color 0.3s;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #ef4444; /* Warna merah saat di-hover */
+}
+
+@keyframes modalSlideUp {
+    from { opacity: 0; transform: translateY(50px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Variasi Warna Kotak Meaning Making */
+.dl-meaning {
+    background-color: #fefce8; /* Kuning sangat muda */
+    border-left-color: #eab308;
+}
+.dl-meaning h4 { color: #ca8a04; }
+.dl-meaning p { color: #854d0e; }
+
+
+/* =========================================
+   11. PRO MODAL UPGRADE (Deep Learning UI)
+========================================= */
+.pro-modal {
+    padding: 0; /* Hapus padding default agar header bisa full width */
+    overflow: hidden; /* Agar sudut melengkung header tidak bocor */
+}
+
+.modal-header {
+    background-color: var(--bg-light);
+    padding: 25px 30px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.modal-profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--white);
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    flex-shrink: 0;
+}
+
+.modal-profile-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.modal-title-area h2 {
+    color: var(--primary-green);
+    margin: 5px 0 0 0;
+    font-size: 1.5rem;
+    line-height: 1.2;
+}
+
+.modal-subtitle {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.badge-mini {
+    background-color: var(--secondary-green);
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 3px 10px;
+    border-radius: 12px;
+    font-weight: 600;
+}
+
+.modal-body {
+    padding: 30px;
+}
+
+.content-section {
+    margin-bottom: 25px;
+}
+
+.content-section h4 {
+    color: var(--text-dark);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.text-green {
+    color: var(--primary-green);
+}
+
+/* Callout Box untuk Deep Learning */
+.dl-box {
+    background-color: #f0fdf4; /* Hijau sangat muda */
+    border-left: 4px solid var(--secondary-green);
+    padding: 20px;
+    border-radius: 0 12px 12px 0;
+    margin-bottom: 25px;
+}
+
+.dl-box h4 {
+    color: var(--primary-green);
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dl-box p {
+    margin: 0;
+    color: #064e3b;
+    font-size: 0.95rem;
+    font-weight: 500;
+}
+
+/* Variasi Warna Kotak Deep Learning */
+.dl-reflection {
+    background-color: #fdf4ff; /* Ungu muda */
+    border-left-color: #c026d3;
+}
+.dl-reflection h4 { color: #a21caf; }
+.dl-reflection p { color: #4a044e; }
+
+/* Tombol Aksi dalam Modal */
+.btn-modal-action {
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 12px;
+    background-color: var(--primary-green);
+    color: var(--white);
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.btn-modal-action:hover {
+    background-color: #044030;
+}

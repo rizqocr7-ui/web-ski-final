@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portal Pembelajaran SKI - MTs Al Amiriyah</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/images/slk.png">
+    <!-- Tambahan Icon agar -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <!-- Top Full-Width Navbar  -->
+    <nav class="top-navbar">
+        <div class="nav-brand"><i class="fas fa-book-open"></i> SKI MTs IX</div>
+        
+        <!-- Hamburger Menu Toggle (Untuk Mobile) -->
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="#home">Beranda</a></li>
+            <li><a href="#tujuan">Tujuan</a></li>
+            <li><a href="#video">Pengantar</a></li>
+            <li><a href="#materi">Media Genially</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="home" class="hero-section">
+        <div class="hero-content">
+            <span class="badge">Penelitian & Pengembangan (R&D)</span>
+            <!-- Judul Skripsi Lengkap -->
+            <h1 style="font-size: 2.2rem;">Pengembangan Media Interaktif Genially Berbasis Pendekatan Deep Learning</h1>
+            <p>Untuk Meningkatkan Hasil Belajar Siswa pada Mata Pelajaran SKI Kelas IX di MTs Al Amiriyah Belun</p>
+            
+            <div class="hero-buttons">
+                <!-- Tombol Eksplorasi jadi Outline  dan scroll ke materi -->
+                <a href="#materi" class="btn-primary">
+                    Mulai Eksplorasi <i class="fas fa-arrow-right"></i>
+                </a>
+                <!-- Tombol Pre-Test sekarang jadi Primary (Mencolok) dan membuka link di tab baru -->
+                <a href="https://forms.gle/3rNethRSpg22q9i1A" target="_blank" class="btn-outline">
+                    Ikuti Pre-Test <i class="fas fa-pencil-alt"></i>
+                </a>
+                
+            </div>
+        </div>
+    </header>
+
+    <!-- Section Tujuan Pembelajaran (Tambahan Baru) -->
+    <section id="tujuan" class="learning-section bg-light">
+        <div class="container">
+            <h2><i class="fas fa-bullseye"></i> Tujuan Pembelajaran</h2>
+            <p class="section-subtitle">Apa yang akan kita capai dari materi Wali Songo ini?</p>
+            
+            <div class="deep-learning-grid">
+                <div class="card">
+                    <i class="fas fa-map-marked-alt card-icon"></i>
+                    <h3>Memahami Sejarah</h3>
+                    <p>Mengetahui biografi dan perjalanan dakwah sembilan tokoh penyebar agama Islam di Nusantara.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-microscope  card-icon"></i>
+                    <h3>Menganalisis Strategi</h3>
+                    <p>Mengkaji pendekatan budaya dan kearifan lokal yang digunakan dalam penyebaran Islam.</p>
+                </div>
+                <div class="card">
+                    <i class="fas fa-shield-heart card-icon"></i>
+                    <h3>Meneladani Sikap</h3>
+                    <p>Mengambil nilai moral, toleransi, dan kebijaksanaan untuk diterapkan di kehidupan sehari-hari.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Peta Dakwah Wali Songo -->
+    <section id="walisongo" class="learning-section">
+        <div class="container">
+            <h2><i class="fas fa-map-marked-alt"></i> Peta Dakwah Wali Songo</h2>
+            <p class="section-subtitle">Klik kartu tokoh untuk melihat analisis strategi dakwah (Deep Learning)</p>
+            
+            <div class="wali-grid">
+                <!-- Kartu 1 -->
+                <div class="wali-card" onclick="openModal('modal-gresik')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/sunangresik.jpeg" alt="Sunan Gresik">
+                    </div>
+                    <h3>Sunan Gresik</h3>
+                    <p>Maulana Malik Ibrahim</p>
+                    <!-- Letakkan di dalam div card, bisa di pojok kanan bawah -->
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 2 -->
+                <div class="wali-card" onclick="openModal('modal-ampel')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Ampel.jpeg" alt="Sunan Ampel">
+                    </div>
+                    <h3>Sunan Ampel</h3>
+                    <p>Raden Rahmat</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+
+                </div>
+                <!-- Kartu 3 -->
+                <div class="wali-card" onclick="openModal('modal-bonang')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Bonang.jpeg" alt="Sunan Bonang">
+                    </div>
+                    <h3>Sunan Bonang</h3>
+                    <p>Makdum Ibrahim</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 4 -->
+                <div class="wali-card" onclick="openModal('modal-drajat')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Drajat.jpeg" alt="Sunan Drajat">
+                    </div>
+                    <h3>Sunan Drajat</h3>
+                    <p>Raden Qosim</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 5 -->
+                <div class="wali-card" onclick="openModal('modal-kalijaga')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Kalijaga.jpeg" alt="Sunan Kalijaga">
+                    </div>
+                    <h3>Sunan Kalijaga</h3>
+                    <p>Raden Said</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 6 -->
+                <div class="wali-card" onclick="openModal('modal-giri')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Giri.jpeg" alt="Sunan Giri">
+                    </div>
+                    <h3>Sunan Giri</h3>
+                    <p>Raden Paku</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 7 -->
+                <div class="wali-card" onclick="openModal('modal-kudus')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Kudus.jpeg" alt="Sunan Kudus">
+                    </div>
+                    <h3>Sunan Kudus</h3>
+                    <p>Ja'far Shadiq</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 8 -->
+                <div class="wali-card" onclick="openModal('modal-muria')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Muria.jpeg" alt="Sunan Muria">
+                    </div>
+                    <h3>Sunan Muria</h3>
+                    <p>Raden Umar Said</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                <!-- Kartu 9 -->
+                <div class="wali-card" onclick="openModal('modal-gunungjati')">
+                    <div class="wali-img">
+                        <img src="assets/walisongo/Sunan-Gunungjati.jpeg" alt="Sunan Gunungjati">
+                    </div>
+                    <h3>Sunan Gunungjati</h3>
+                    <p>Syarif Hidayatullah</p>
+                    <div style="position: absolute; bottom: 20px; right: 20px; color: #047857;">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Video Pengantar Materi -->
+<section id="video" class="learning-section">
+    <div class="container">
+        <h2><i class="fas fa-play-circle"></i> Video Pengantar Materi</h2>
+        <p class="section-subtitle">Mari kita lihat sekilas bagaimana perjuangan dakwah di tanah Jawa</p>
+        
+        <div class="video-wrapper">
+            <!-- GANTI TULISAN "ID_VIDEO_KAMU_DISINI" DENGAN KODE DARI YOUTUBE -->
+            <iframe width="100%" height="500" 
+                src="https://www.youtube.com/embed/9LfJ-qUW16A" 
+                title="Video Pengantar Wali Songo" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen>
+            </iframe>
+        </div>
+    </div>
+</section>
+
+  <!-- Section Alur Deep Learning & Genially -->
+    <section id="materi" class="learning-section bg-light">
+        <div class="container">
+            <h2><i class="fas fa-laptop-code"></i> Eksplorasi Media Interaktif</h2>
+            <p class="section-subtitle">Terapkan 4 sintaks Deep Learning ke dalam media pembelajaran di bawah ini</p>
+            
+            <!-- Grid 4 Pilar Deep Learning (Sesuai Proposal) -->
+            <div class="deep-learning-grid" style="margin-bottom: 40px;">
+                <div class="card border-top-accent dl-step">
+                    <div class="step-icon"><i class="fas fa-link"></i></div>
+                    <h3>1. Connecting</h3>
+                    <p>Menghubungkan konsep awal dengan sejarah dakwah.</p>
+                </div>
+                <div class="card border-top-accent dl-step">
+                    <div class="step-icon"><i class="fas fa-brain"></i></div>
+                    <h3>2. Critical Thinking</h3>
+                    <p>Analisis strategi dakwah dan pendekatan budaya.</p>
+                </div>
+                <!-- Tambahan Sintaks ke-3 sesuai proposal -->
+                <div class="card border-top-accent dl-step">
+                    <div class="step-icon"><i class="fas fa-heart"></i></div>
+                    <h3>3. Meaning Making</h3>
+                    <p>Memaknai esensi dakwah tanpa unsur paksaan.</p>
+                </div>
+                <div class="card border-top-accent dl-step">
+                    <div class="step-icon"><i class="fas fa-lightbulb"></i></div>
+                    <h3>4. Reflection</h3>
+                    <p>Memetik hikmah dan nilai moral keteladanan.</p>
+                </div>
+            </div>
+
+            <!-- Wadah Embed Media Genially (Pro Version) -->
+            <div class="genially-wrapper">
+                <!-- Mac-like Window Header (Aesthetic Pro) -->
+                <div class="window-header">
+                    <div class="window-dots">
+                        <span></span><span></span><span></span>
+                    </div>
+                    <div class="window-title">Media Pembelajaran Genially - Materi SKI</div>
+                </div>
+                
+                <div class="genially-container">
+                    <!-- Responsive Iframe Container (Otomatis 16:9) -->
+                    <div class="responsive-iframe">
+                        
+                        <!-- Iframe Media Interaktif Genially -->
+                        <iframe 
+                            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" 
+                            src="https://view.genially.com/69f4ddb5e15a9627305a1979" 
+                            allowscriptaccess="always" 
+                            allow="autoplay; fullscreen" 
+                            allowfullscreen="true" 
+                            scrolling="no" 
+                            allownetworking="all">
+                        </iframe>
+
+                    </div>
+                </div>
+            </div>
+            
+           <!-- Tombol Post-Test di bawah Genially -->
+            <div style="text-align: center; margin-top: 30px; margin-bottom: 50px;">
+                <a href="https://forms.gle/rkHLbvZg2VHWzNHR9" target="_blank" class="btn-post-test" style="background-color: #047857; color: white; padding: 12px 24px; border-radius: 25px; text-decoration: none; font-weight: bold; font-family: sans-serif; display: inline-flex; align-items: center; gap: 8px;">
+                    Kerjakan Post-Test <i class="fas fa-check-circle"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+            
+
+    <!-- Footer Simple -->
+    <footer>
+        <div class="container" style="text-align: center; padding: 30px; color: var(--text-light);">
+            <p>&copy; 2026 - Riset Pengembangan Media SKI | MTs Al Amiriyah Belun</p>
+        </div>
+    </footer>
+
+  <!-- KUMPULAN 9 MODAL POP-UP DEEP LEARNING (PRO UI/UX) -->
+    
+    <!-- Modal 1: Sunan Gresik -->
+    <div id="modal-gresik" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-gresik')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/sunangresik.jpeg" alt="Sunan Gresik">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Gresik</h2>
+                    <p class="modal-subtitle">Maulana Malik Ibrahim</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Beliau menjadikan kota Gresik sebagai tempat pertama kali berdakwah, dengan sasaran masyarakat setempat yang memeluk agama Hindu dan Budha.</p>
+                </div>
+                <!-- Kotak Critical Thinking (Hijau Muda) -->
+                <div class="dl-box dl-critical">
+                    <h4><i class="fas fa-brain"></i> Critical Thinking</h4>
+                    <p>Mengapa Sunan Gresik memilih pendekatan persuasif dan berbaur dalam keseharian masyarakat setempat?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-gresik')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 2: Sunan Ampel -->
+    <div id="modal-ampel" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-ampel')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Ampel.jpeg" alt="Sunan Ampel">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Ampel</h2>
+                    <p class="modal-subtitle">Raden Rahmat</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Menggunakan metode ammah melalui pengajian rutin seperti ceramah dan shalat berjamaah.</p>
+                </div>
+                <!-- Kotak Reflection (Ungu Muda) -->
+                <div class="dl-box dl-reflection">
+                    <h4><i class="fas fa-lightbulb"></i> Reflection</h4>
+                    <p>Nilai konsistensi apa yang bisa kita ambil dari rutinitas dakwah Sunan Ampel?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-ampel')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 3: Sunan Bonang -->
+    <div id="modal-bonang" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-bonang')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Bonang.jpeg" alt="Sunan Bonang">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Bonang</h2>
+                    <p class="modal-subtitle">Makdum Ibrahim</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Menerapkan seni dalam pengajaran agama Islam, seperti menciptakan gending dan berdakwah melalui tulisan (Suluk Sunan Bonang).</p>
+                </div>
+                <!-- Kotak Critical Thinking (Hijau Muda) -->
+                <div class="dl-box dl-critical">
+                    <h4><i class="fas fa-brain"></i> Critical Thinking</h4>
+                    <p>Bagaimana kesenian dapat menjadi media komunikasi yang lebih efektif daripada ceramah satu arah?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-bonang')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 4: Sunan Drajat -->
+    <div id="modal-drajat" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-drajat')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Drajat.jpeg" alt="Sunan Drajat">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Drajat</h2>
+                    <p class="modal-subtitle">Raden Qosim</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Menerapkan metode dakwah bil-hikmah melalui pendekatan yang bijaksana dengan memanfaatkan kesenian seperti gamelan dan tembang macapat pangkur.</p>
+                </div>
+                <!-- Kotak Meaning Making (Kuning Muda) -->
+                <div class="dl-box dl-meaning">
+                    <h4><i class="fas fa-heart"></i> Meaning Making</h4>
+                    <p>Mengapa pendekatan budaya dianggap lebih ramah dan mudah diterima oleh masyarakat?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-drajat')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 5: Sunan Kalijaga -->
+    <div id="modal-kalijaga" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-kalijaga')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Kalijaga.jpeg" alt="Sunan Kalijaga">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Kalijaga</h2>
+                    <p class="modal-subtitle">Raden Said</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Tidak menolak budaya lokal, melainkan menyelaraskan budaya lokal (seperti pertunjukan wayang) dengan ajaran Islam, di mana bayaran menontonnya cukup dengan membaca dua kalimat syahadat.</p>
+                </div>
+                <!-- Kotak Reflection (Ungu Muda) -->
+                <div class="dl-box dl-reflection">
+                    <h4><i class="fas fa-lightbulb"></i> Reflection</h4>
+                    <p>Toleransi seperti apa yang ditunjukkan beliau terhadap tradisi masyarakat Jawa?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-kalijaga')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 6: Sunan Giri -->
+    <div id="modal-giri" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-giri')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Giri.jpeg" alt="Sunan Giri">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Giri</h2>
+                    <p class="modal-subtitle">Raden Paku</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Membangun pesantren untuk mengajar masyarakat, dan juga sering datang berkunjung ke masyarakat untuk menyampaikan ajaran Islam secara langsung.</p>
+                </div>
+                <!-- Kotak Critical Thinking (Hijau Muda) -->
+                <div class="dl-box dl-critical">
+                    <h4><i class="fas fa-brain"></i> Critical Thinking</h4>
+                    <p>Mengapa mendirikan institusi pendidikan (pesantren) penting bagi kelangsungan dakwah jangka panjang?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-giri')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 7: Sunan Kudus -->
+    <div id="modal-kudus" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-kudus')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Kudus.jpeg" alt="Sunan Kudus">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Kudus</h2>
+                    <p class="modal-subtitle">Ja'far Shadiq</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Penyebaran Islam di Jawa terjadi tanpa adanya paksaan, menggunakan metode Ammah dan bil Hikmah melalui pertemuan ceramah agama di masjid-masjid dan membangun pesantren.</p>
+                </div>
+                <!-- Kotak Meaning Making (Kuning Muda) -->
+                <div class="dl-box dl-meaning">
+                    <h4><i class="fas fa-heart"></i> Meaning Making</h4>
+                    <p>Apa dampak dari penyebaran ajaran agama yang dilakukan tanpa unsur paksaan?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-kudus')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 8: Sunan Muria -->
+    <div id="modal-muria" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-muria')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Muria.jpeg" alt="Sunan Muria">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Muria</h2>
+                    <p class="modal-subtitle">Raden Umar Said</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Menjelajahi berbagai tempat seperti masjid, pasar, dan perkampungan untuk mengajarkan pentingnya iman, amal saleh, kesederhanaan, keadilan, dan persaudaraan.</p>
+                </div>
+                <!-- Kotak Reflection (Ungu Muda) -->
+                <div class="dl-box dl-reflection">
+                    <h4><i class="fas fa-lightbulb"></i> Reflection</h4>
+                    <p>Bagaimana nilai kesederhanaan Sunan Muria bisa kita terapkan di era modern saat ini?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-muria')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal 9: Sunan Gunungjati -->
+    <div id="modal-gunungjati" class="modal-overlay">
+        <div class="modal-content pro-modal">
+            <span class="close-btn" onclick="closeModal('modal-gunungjati')">&times;</span>
+            <div class="modal-header">
+                <div class="modal-profile-img">
+                    <img src="assets/walisongo/Sunan Gunungjati.jpeg" alt="Sunan Gunungjati">
+                </div>
+                <div class="modal-title-area">
+                    <span class="badge-mini">Wali Songo</span>
+                    <h2>Sunan Gunungjati</h2>
+                    <p class="modal-subtitle">Syarif Hidayatullah</p>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="content-section">
+                    <h4><i class="fas fa-history text-green"></i> Konteks Sejarah</h4>
+                    <p>Menggunakan pendekatan penghormatan terhadap budaya lokal, memadukan seni arsitektur Islam dan Jawa, serta meningkatkan rasa toleransi beragama di lingkungan masyarakat.</p>
+                </div>
+                <!-- Kotak Critical Thinking (Hijau Muda) -->
+                <div class="dl-box dl-critical">
+                    <h4><i class="fas fa-brain"></i> Critical Thinking</h4>
+                    <p>Mengapa akulturasi budaya dalam arsitektur masjid dapat mempererat hubungan antar umat beragama?</p>
+                </div>
+                <a href="#materi" class="btn-modal-action" onclick="closeModal('modal-gunungjati')">Eksplorasi Materi Lengkap <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script Khusus Navigasi Mobile (Bypass script.js) -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const toggleBtn = document.getElementById('mobile-menu');
+            const menuLinks = document.querySelector('.nav-links');
+
+            if(toggleBtn && menuLinks) {
+                toggleBtn.addEventListener('click', function() {
+                    menuLinks.classList.toggle('active');
+                });
+
+                // Menutup menu jika salah satu link diklik
+                const links = menuLinks.querySelectorAll('li a');
+                links.forEach(function(link) {
+                    link.addEventListener('click', function() {
+                        menuLinks.classList.remove('active');
+                    });
+                });
+            }
+        });
+    </script>
+
+    <script src="js/script.js"></script>
+
+
+</body>
+</html>
